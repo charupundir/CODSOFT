@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background: #0077b6;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #005f8d;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 10px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+        }
+
+        .top-banner {
+            background: url('path/to/hero-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px; 
+        }
+
+        .top-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .top-banner .btn {
+            background: #fff;
+            color: #0077b6;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+        }
+
+        .top-banner .btn:hover {
+            background: #e0e0e0;
+        }
+
+        
+    .home-section {
+        padding: 100px 20px 50px; 
+        background: url('https://img.freepik.com/free-photo/top-view-smartphone-with-keyboard-charger_23-2149404179.jpg?t=st=1723897962~exp=1723901562~hmac=2e9402daaf69e7fcf96087b93a47fc1364e894386e76061dab42eadbdb35097d&w=740') no-repeat center center;
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .home-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); 
+        z-index: 0;
+    }
+
+    .home-section .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .home-section h1 {
+        margin-bottom: 20px;
+        font-size: 3rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .home-section p {
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+        line-height: 1.6;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        color: #f1f1f1;
+    }
+
+    .explore-btn {
+        background: #00b4d8;
+        color: #fff;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        transition: background 0.3s ease, transform 0.3s ease;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .explore-btn:hover {
+        background: #0077b6;
+        transform: translateY(-4px);
+    }
+
+    .home-section::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: url('path/to/decorative-pattern.svg') no-repeat center bottom;
+        background-size: cover;
+        z-index: 0;
+    }
+
+ 
+        .about-section, .services-section{
+        padding: 50px 20px;
+        background: linear-gradient(135deg, #f9f9f9 0%, #e0e0e0 100%);
+        text-align: center;
+        color: #333;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .about-section,.services-section h2 {
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        font-family: 'Georgia', serif;
+        color: #0077b6;
+    }
+
+    .section-description {
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .about-cards, .services-card {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .about-card, .service-card {
+        max-width: 300px;
+        text-align: center;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about-card:hover , .service-card:hover{
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-card img , .service-card img{
+        width: 100%;
+        height: auto;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .card-content {
+        padding: 20px;
+    }
+
+    .card-content h3 {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        color: #0077b6;
+    }
+
+    .card-content p {
+        font-size: 1rem;
+        color: #555;
+    }
+
+        .services-section {
+            padding: 50px 20px;
+            background: #e0f7fa; 
+            text-align: center;
+            color: #333;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .service {
+            max-width: 300px;
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-section {
+            padding: 50px 20px;
+            background: #fff;
+            text-align: center;
+            color: #333;
+        }
+
+        .portfolio-section {
+        padding: 50px 20px;
+        background: linear-gradient(135deg, #f4f4f4 0%, #e0e0e0 100%);
+        text-align: center;
+        color: #333;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .portfolio-section h2 {
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        font-family: 'Georgia', serif;
+        color: #0077b6;
+    }
+
+    .section-description {
+        margin-bottom: 30px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .portfolio {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .portfolio-item {
+        max-width: 300px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .portfolio-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 12px;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+        opacity: 1;
+    }
+
+    .portfolio-overlay h3 {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        color: #fff;
+    }
+
+    .portfolio-overlay p {
+        font-size: 1rem;
+        color: #ddd;
+    }
+
+        .contact-section {
+        background: linear-gradient(135deg, #0077b6 0%, #005f8d 100%);
+        color: #fff;
+        padding: 50px 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .contact-section h2 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    .contact-info {
+        margin-bottom: 30px;
+    }
+
+    .contact-info p {
+        font-size: 1.1rem;
+        margin: 10px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-info i {
+        margin-right: 10px;
+        color: #ffd700; 
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    form label {
+        display: block;
+        margin: 10px 0 5px;
+        font-weight: bold;
+    }
+
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        background: #333;
+        color: #fff;
+    }
+
+    form button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        background: #ffd700; 
+        color: #333;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    form button:hover {
+        background: #e0c89c; 
+    }
+
+    .map-container {
+        margin-top: 30px;
+    }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #1d9bf0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #333;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.open div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+
+            .hamburger.open div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.open div:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -8px);
+            }
+        }
+
+        .description-paragraph {
+            font-family: 'Georgia', serif;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 2rem 20px;
+        }
+
+      
+    </style>
+</head>
+<body>
+    <div class="social-icons">
+        <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+        <a href="#" class="fab fa-twitter" aria-label="Twitter"></a>
+        <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+        <a href="#" class="fab fa-youtube" aria-label="YouTube"></a>
+        <a href="#" class="fab fa-linkedin-in" aria-label="LinkedIn"></a>
+        <a href="#" class="fas fa-globe" aria-label="Website"></a>
+    </div>
+<hr>
+    <header>
+        <nav>
+            <div class="logo">GadgetHub</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Products</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="home-section">
+        <div class="container">
+            <div class="content">
+                <h1>Welcome to GadgetHub</h1>
+                <p>Your one-stop shop for the latest smartphones, laptops, and tablets. Explore our collection and find your perfect device.</p>
+                <a href="#portfolio" class="btn explore-btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <p class="description-paragraph">At GadgetHub, we provide cutting-edge technology and gadgets to enhance your digital lifestyle. From the latest smartphones to high-performance laptops and tablets, our collection features top brands and innovative solutions. We are committed to delivering exceptional quality and unparalleled customer service, ensuring that you get the best value for your investment. Experience technology like never before with GadgetHub – your gateway to the future.</p>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p class="section-description">Discover more about our mission, vision, and values. Our commitment to innovation and excellence drives us to deliver the best products and services.</p>
+            <div class="about-cards">
+                <div class="about-card">
+                    <img src="img/about-image1.jpg" alt="About Image 1">
+                    <div class="card-content">
+                        <h3>Our Mission</h3>
+                        <p>Bringing top-notch technology to your fingertips, ensuring you stay ahead in the digital world.</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <img src="img/about-image2.jpg" alt="About Image 2">
+                    <div class="card-content">
+                        <h3>Our Vision</h3>
+                        <p>To be the go-to destination for technology enthusiasts and innovators.</p>
+                    </div>
+                </div>
+                <div class="about-card">
+                    <img src="img/about-image3.jpg" alt="About Image 3">
+                    <div class="card-content">
+                        <h3>Our Values</h3>
+                        <p>Innovation, quality, and customer satisfaction are the cornerstones of our work.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services-card">
+                <div class="service-card">
+                    <img src="img/services_img1.jpg" alt="">
+                    <div class="card-content">
+                        <h3>Tech Support</h3>
+                        <p>Expert help with any tech issues you may have.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="img/services_img2.jpg" alt="">
+                    <div class="card-content">
+                        <h3>Device Repair</h3>
+                        <p>Quick and reliable repair services for your gadgets.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="img/services_img3.jpg" alt="">
+                    <div class="card-content">
+                        <h3>Consulting</h3>
+                        <p>Personalized advice to help you choose the right products.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+    <div class="container">
+        <h2>Our Products</h2>
+        <p class="section-description">Explore our range of products that blend functionality with style. Each product is meticulously crafted to meet your needs.</p>
+        <div class="portfolio">
+            <div class="portfolio-item">
+                <img src="img/product-image1.jpg" alt="Product Image 1">
+                <div class="portfolio-overlay">
+                    <h3>Smartphone</h3>
+                    <p>Latest models with cutting-edge features.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="img/product-image2.jpg" alt="Product Image 2">
+                <div class="portfolio-overlay">
+                    <h3>Laptop</h3>
+                    <p>High-performance laptops for every need.</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="img/product-image3.jpg" alt="Product Image 3">
+                <div class="portfolio-overlay">
+                    <h3>Tablet</h3>
+                    <p>Versatile tablets for work and play.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>We’d love to hear from you! Whether you have a question, need support, or just want to say hello, feel free to reach out to us through the contact form below or use the contact information provided.</p>
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> +1 (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> support@gadgethub.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley, CA</p>
+            </div>
+            <form action="submit_form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required> <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required> <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea> <br>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+        
+    </section>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 GadgetHub. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="fab fa-facebook-f" aria-label="Facebook"></a>
+                <a href="#" class="fab fa-twitter" aria-label="Twitter"></a>
+                <a href="#" class="fab fa-instagram" aria-label="Instagram"></a>
+                <a href="#" class="fab fa-youtube" aria-label="YouTube"></a>
+                <a href="#" class="fab fa-linkedin-in" aria-label="LinkedIn"></a>
+                <a href="#" class="fas fa-globe" aria-label="Website"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function () {
+                navLinks.classList.toggle('show');
+                hamburger.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
